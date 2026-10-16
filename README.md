@@ -1,6 +1,6 @@
 # Ki-OCR
 
-[English](README_EN.md) · [方法说明](#为什么输入尺度重要) · [完整结果与评测协议](docs/EVALUATE.md) · [发布材料](docs/RELEASE.md) · [推理指南](docs/REPRODUCE.md)
+[English](README_EN.md) · [方法说明](#为什么输入尺度重要) · [完整结果与评测协议](docs/EVALUATE.md) · [发布材料](docs/RELEASE.md) · [运行流程](#运行流程)
 
 Ki-OCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adaptation 方法。Ki-OCR 不修改 TeleOCR 的模型架构和模型权重，而是根据输入文档的视觉尺度，自适应调整整页及检测到的 layout region 的输入尺度，使不同区域以更适合识别的尺度进行解析，并且提高视觉预算的使用效率。
 
@@ -16,40 +16,97 @@ Ki-OCR 包含两个互补模块：
 - **Region-adaptive Scaling：** 根据文本和表格区域的视觉特征，在模型的视觉与上下文预算内自适应选择适合的输入尺度。
 
 
-## 快速开始
+## 运行流程
 
-使用 Python 3.10 或更高版本安装 CPU 接口：
+以下步骤用于在独立 Linux 机器上运行完整推理，需要 NVIDIA GPU。共享集群的接入方式见[集群运行说明](docs/REPRODUCE.md#managed-cluster)。
+
+### 1. 安装代码与推理环境
 
 ```bash
 git clone https://github.com/yushuosun/Ki-OCR.git
 cd Ki-OCR
 git checkout ki-ocr-repro-r6
-python -m pip install -e .
-python -m ki_ocr --help
 ```
 
-无需加载模型即可计算源感知渲染尺度：
+准备固定版本的 [TeleOCR 源码](https://github.com/caipeng328/TeleOCR/tree/9921cffe380efe4e2fa010258b3d0c3cb70bab2d)和 [TeleOCR-1.2B 模型](https://huggingface.co/XingChen-AGI/TeleOCR/tree/e92585356c0d0b7b7a65938f3da035c6593cc9a6)，按 [TeleOCR 安装说明](https://github.com/caipeng328/TeleOCR/blob/9921cffe380efe4e2fa010258b3d0c3cb70bab2d/README.md)建立推理环境。发布配置使用 vLLM 0.11.0、torch 2.8.0+cu128、transformers 4.57.6 和 pypdfium2 4.30.0；完整版本列表见 [environment/requirements-tele.lock](environment/requirements-tele.lock)，组件与文件校验说明见[依赖文档](docs/DEPENDENCIES.md)。
 
-```bash
-python -m ki_ocr a-scale \
-    --page-points 612 792 --source-pixels 1224 1584
-```
-
-命令返回 `{"pre_render_scale": 2.0}`。
-
-如需对图像进行字形测量，安装视觉依赖：
+在该推理环境中安装 Ki-OCR 及图像处理依赖：
 
 ```bash
 python -m pip install -e ".[vision]"
 ```
 
-`ki_ocr.api` 提供 `source_render_scale`、`candidate_scales` 和 `select_measured_candidates` 接口。原有 `glyphfit` API 与 CLI 作为兼容入口保留。
+### 2. 配置源码与模型路径
 
-## 运行已发布流程
+```bash
+cp configs/runtime_binding.example.json runtime_binding.json
+```
 
-完整推理使用 Linux，以及固定版本的 TeleOCR 源码、模型和运行依赖。在 `runtime_binding.json` 中配置本地路径，再于加载模型前准备输入图像。仓库已包含该版本使用的三个运行时辅助模块。
+编辑 `runtime_binding.json`，将 `source` 和 `model` 替换为本机的绝对路径，并将 `execution_policy` 设为 `standalone`：
 
-[推理指南](docs/REPRODUCE.md)提供专用机器 CLI 和受管集群 Python 入口，包括 GPU 准入与工作时间窗口设置。固定环境见[依赖说明](docs/DEPENDENCIES.md)。
+```json
+{
+  "source": "/absolute/path/to/TeleOCR",
+  "model": "/absolute/path/to/TeleOCR-1.2B",
+  "runtime_helpers": "bundled",
+  "execution_policy": "standalone"
+}
+```
+
+检查依赖版本、源码文件和模型权重：
+
+```bash
+python -m ki_ocr doctor --binding runtime_binding.json --verify-weight
+```
+
+### 3. 准备输入图像
+
+将下面的输入路径替换为待处理图像目录。复现发布结果时，使用 OmniDocBench v1.6_full 的全部 1,651 页图像。
+
+```bash
+mkdir -p outputs
+python -m ki_ocr prepare \
+    --binding runtime_binding.json \
+    --input /absolute/path/to/OmniDocBench/images \
+    --output outputs/prepared1651.json
+
+PREPARED_SHA256=$(python -c "import hashlib; from pathlib import Path; print(hashlib.sha256(Path('outputs/prepared1651.json').read_bytes()).hexdigest())")
+```
+
+该步骤在 CPU 上检查输入并生成运行清单。准备完成后如需修改配置或路径，请重新执行此步骤并计算新的 SHA256。
+
+### 4. 运行推理
+
+先查看可用 GPU 的物理编号、UUID 和占用情况：
+
+```bash
+nvidia-smi --query-gpu=index,uuid,memory.used,utilization.gpu --format=csv
+```
+
+下面以 GPU 0 和 4 小时运行上限为例，请按实际设备和任务规模修改。运行上限包含模型加载时间，不是处理 1,651 页所需时间的估计。独立机器入口要求选定 GPU 的显存占用和利用率均为 0。
+
+```bash
+GPU_INDEX=0
+GPU_UUID=$(nvidia-smi -i "$GPU_INDEX" --query-gpu=uuid --format=csv,noheader)
+WORK_SECONDS=14400
+
+python -m ki_ocr run-standalone \
+    --prepared outputs/prepared1651.json \
+    --prepared-sha "$PREPARED_SHA256" \
+    --output outputs/run_001 \
+    --device "$GPU_INDEX" \
+    --uuid "$GPU_UUID" \
+    --work-seconds "$WORK_SECONDS"
+```
+
+该流程会运行 Ki-OCR 和采用相同生成设置的原始输入对照。Markdown 分别保存在：
+
+- Ki-OCR：`outputs/run_001/markdown/GLYPHFIT_FULL/`
+- 原始输入对照：`outputs/run_001/markdown/OFFICIAL_ORIGINAL/`
+
+运行结束后检查返回的 `status` 和 `completed_page_arm_N`。完整的双组 1,651 页运行应包含 3,302 个完成项；程序退出并不一定表示所有页面均已完成。每次新运行请使用新的输出目录。
+
+推理配置见 [configs/ki_ocr_ab.json](configs/ki_ocr_ab.json)。两组使用相同模型和生成设置，请求输出上限与上下文窗口均为 32,768 tokens，实际可生成长度受输入长度约束。结果评分步骤见下方“复现评测”，更多运行接口和配置说明见[推理指南](docs/REPRODUCE.md)。
 
 ## 已发布结果
 
