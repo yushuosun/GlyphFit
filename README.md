@@ -1,12 +1,10 @@
 # SWOCR
 
-以尺度感知输入减少文档解析的内容识别视觉 token
-
 [English](README_EN.md) · [方法说明](#为什么输入尺度重要) · [完整结果与评测协议](docs/EVALUATE.md) · [发布材料](docs/RELEASE.md)
 
-SWOCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adaptation 方法。SWOCR 不修改 TeleOCR 的模型架构和模型权重，而是根据输入文档的视觉尺度，自适应调整整页及检测到的 layout region 的输入尺度，使不同区域以更适合 TeleOCR 识别的尺度进行解析，并且提高视觉预算的使用效率。
+SWOCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adaptation 方法。SWOCR 不修改 TeleOCR 的模型架构和模型权重，而是根据输入文档的视觉尺度，自适应调整整页及检测到的 layout region 的输入尺度，使不同区域以更适合识别的尺度进行解析，并且提高视觉预算的使用效率。
 
-在 **OmniDocBench v1.6_full（1,651 页）** 上，已发布的 SWOCR + TeleOCR-1.2B 配置取得 **98.40951 Overall**，比采用相同生成设置的原始输入对照提高 **0.79246 个百分点**，同时将每页内容识别视觉 token 减少 **51.85%**。
+在 **OmniDocBench v1.6_full（1,651 页）** 上，已发布的 SWOCR 配置取得 **98.40951 Overall**。统计来看，SWOCR 的平均每页内容识别视觉 token 从 4268.23 降至 2055.27，减少 51.85%。
 
 ## 为什么输入尺度重要
 
@@ -15,23 +13,23 @@ SWOCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adapt
 SWOCR 包含两个互补模块：
 
 - **Source-aware Rendering：** 使整页渲染尺度与源文档分辨率相协调，减少冗余视觉计算。
-- **Region-adaptive Scaling：** 根据文本和表格区域的视觉特征，在模型的视觉与上下文预算内选择适合的输入尺度。
+- **Region-adaptive Scaling：** 根据文本和表格区域的视觉特征，在模型的视觉与上下文预算内自适应选择适合的输入尺度。
 
 
 ## 已发布结果
 
-OmniDocBench v1.6_full · 1,651 页 · TeleOCR-1.2B
+以下选取 [OmniDocBench v1.6_full 官方榜单](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation)中 Overall 最高的五项，与 SWOCR 对照（核对日期：2026-10-16）。SWOCR 的本地评测分数高于当前榜首，尚未被官方榜单收录。
 
-| 配置 | Overall ↑ | 每页内容识别视觉 token ↓ |
-|---|---:|---:|
-| 原始输入，相同生成设置 | 97.61705 | 4268.23 |
-| SWOCR A+B | **98.40951** | **2055.27** |
+| 方法 | Overall ↑ | 文本 ED ↓ | 公式 CDM ↑ | 表格 TEDS ↑ | 表格 TEDS-S ↑ | 阅读顺序 ED ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| **SWOCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
+| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
+| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
+| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
+| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
+| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
 
-| 文本 ED ↓ | 公式 CDM ↑ | 表格 TEDS ↑ | 表格 TEDS-S ↑ | 阅读顺序 ED ↓ |
-|---:|---:|---:|---:|---:|
-| 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
-
-Overall、CDM、TEDS 和 TEDS-S 为百分数，ED 为比例值。上述 token 统计覆盖内容识别输入，不包含版面分析、预热和候选尺度测量开销，也不代表端到端耗时下降。两组的逐页指标、token 记录及复算脚本见[公开证据](docs/EVIDENCE.md)。
+Overall、CDM、TEDS 和 TEDS-S 为百分数，ED 为比例值。两组的逐页指标、token 记录及复算脚本见[公开证据](docs/EVIDENCE.md)。
 
 本次评测覆盖 OmniDocBench v1.6_full 的全部 1,651 页，采用官方 scorer 的 `f133a71e9e91c3621c7ce8994200a7b394a06eb3` 版本及配套 quick_match 配置。[评测协议](docs/EVALUATE.md)集中说明对照设置、指标覆盖范围与已发布材料。
 

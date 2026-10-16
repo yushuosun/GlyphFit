@@ -1,12 +1,10 @@
 # SWOCR
 
-Reducing content-recognition visual tokens with scale-aware inputs
-
 [简体中文](README.md) · [Method](#why-input-scale-matters) · [Full results and evaluation protocol](docs/EVALUATE.md) · [Release materials](docs/RELEASE.md)
 
-SWOCR is a training-free inference-time adaptation method built on a frozen TeleOCR-1.2B. Without modifying TeleOCR's architecture or model weights, SWOCR adaptively adjusts the input scales of document pages and detected layout regions according to the visual scale of the input document. This allows different regions to be parsed at scales better suited to TeleOCR while improving visual budget utilization.
+SWOCR is a training-free inference-time adaptation method built on a frozen TeleOCR-1.2B. Without modifying TeleOCR's architecture or model weights, SWOCR adaptively adjusts the input scales of document pages and detected layout regions according to the visual scale of the input document. This allows different regions to be parsed at scales better suited to recognition while improving visual budget utilization.
 
-On **OmniDocBench v1.6_full (1,651 pages)**, the released SWOCR + TeleOCR-1.2B configuration achieves **98.40951 Overall**, improving on the original-input control with the same generation settings by **0.79246 percentage points**, while reducing content-recognition visual tokens per page by **51.85%**.
+On **OmniDocBench v1.6_full (1,651 pages)**, the released SWOCR configuration achieves **98.40951 Overall**. The recorded statistics show that SWOCR reduces average content-recognition visual tokens per page from 4268.23 to 2055.27, a reduction of 51.85%.
 
 ## Why input scale matters
 
@@ -15,24 +13,24 @@ A document page may contain large headings, dense body text, tables and formulas
 SWOCR comprises two complementary modules:
 
 - **Source-aware Rendering:** Aligns the page-rendering scale with the source document resolution to reduce redundant visual computation.
-- **Region-adaptive Scaling:** Selects suitable input scales based on the visual characteristics of text and table regions, within the model's visual and context budgets.
+- **Region-adaptive Scaling:** Adaptively selects suitable input scales based on the visual characteristics of text and table regions, within the model's visual and context budgets.
 
 The two modules allocate input detail at the page and region levels, respectively. TeleOCR performs layout analysis, content recognition, post-processing and Markdown assembly.
 
 ## Released results
 
-OmniDocBench v1.6_full · 1,651 pages · TeleOCR-1.2B
+The table compares SWOCR with the five highest Overall scores on the [official OmniDocBench v1.6_full leaderboard](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation), checked on 2026-10-16. SWOCR's local evaluation score exceeds the current leading score; SWOCR has not yet been included in the official leaderboard.
 
-| Configuration | Overall ↑ | Content-recognition visual tokens/page ↓ |
-|---|---:|---:|
-| Original input, same generation settings | 97.61705 | 4268.23 |
-| SWOCR A+B | **98.40951** | **2055.27** |
+| Method | Overall ↑ | Text ED ↓ | Formula CDM ↑ | Table TEDS ↑ | Table TEDS-S ↑ | Reading order ED ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| **SWOCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
+| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
+| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
+| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
+| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
+| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
 
-| Text ED ↓ | Formula CDM ↑ | Table TEDS ↑ | Table TEDS-S ↑ | Reading order ED ↓ |
-|---:|---:|---:|---:|---:|
-| 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
-
-Overall, CDM, TEDS and TEDS-S are percentages; ED values are ratios. The token statistics cover content-recognition inputs, excluding layout, warmup and candidate-scale measurement work; they do not establish an end-to-end latency reduction. Both arms' per-page metrics, token counts and recomputation script are available in the [released evidence](docs/EVIDENCE.md).
+Overall, CDM, TEDS and TEDS-S are percentages; ED values are ratios. Both arms' per-page metrics, token counts and recomputation script are available in the [released evidence](docs/EVIDENCE.md).
 
 This evaluation covers all 1,651 pages of OmniDocBench v1.6_full, using the official scorer at commit `f133a71e9e91c3621c7ce8994200a7b394a06eb3` and the accompanying quick_match configuration. The [evaluation protocol](docs/EVALUATE.md) describes the control settings, metric coverage and released materials.
 
