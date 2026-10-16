@@ -1,12 +1,12 @@
 # Evaluate the predictions
 
-From the SWOCR repository root, extract both release attachments and verify the predictions:
+From the Ki-OCR repository root, extract both release attachments and verify the predictions:
 
 ```bash
 mkdir -p outputs/evaluation outputs/predictions/GLYPHFIT_FULL
-python -m zipfile -e artifacts/submission/SWOCR_EVALUATION_CONFIG_AND_RESULTS_R5.zip outputs/evaluation
-python -m zipfile -e artifacts/submission/SWOCR_OmniDocBench_v1.6_predictions.zip outputs/predictions/GLYPHFIT_FULL
-python -m swocr verify-predictions --predictions outputs/predictions/GLYPHFIT_FULL --manifest outputs/evaluation/metadata/PREDICTION_FILES_SHA256.json
+python -m zipfile -e artifacts/submission/Ki-OCR_EVALUATION_CONFIG_AND_RESULTS_R6.zip outputs/evaluation
+python -m zipfile -e artifacts/submission/Ki-OCR_OmniDocBench_v1.6_predictions.zip outputs/predictions/GLYPHFIT_FULL
+python -m ki_ocr verify-predictions --predictions outputs/predictions/GLYPHFIT_FULL --manifest outputs/evaluation/metadata/PREDICTION_FILES_SHA256.json
 ```
 
 Use the official [OmniDocBench evaluator](https://github.com/opendatalab/OmniDocBench) at `f133a71e9e91c3621c7ce8994200a7b394a06eb3` with its CDM/TeX/ImageMagick/Ghostscript environment. Obtain the official GT separately; its SHA256 is `a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496`. Version checks are recorded in [metadata](../metadata/current_official_version_check.json).
@@ -16,7 +16,7 @@ Edit **`outputs/evaluation/configs/end2end.yaml`**, created by the extraction ab
 ```bash
 cd /absolute/path/OmniDocBench
 git checkout f133a71e9e91c3621c7ce8994200a7b394a06eb3
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python pdf_validation.py --config /absolute/path/SWOCR/outputs/evaluation/configs/end2end.yaml
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python pdf_validation.py --config /absolute/path/Ki-OCR/outputs/evaluation/configs/end2end.yaml
 ```
 
 The full evaluation contains 1651 pages. Text ED uses 1557 valid pages, formula CDM 313, table TEDS 458 and reading order ED 1638. Overall is the equal-weight mean of text accuracy, formula CDM and table TEDS. In the exact result JSON, component metrics are raw ratios and Overall is a percentage.
@@ -27,9 +27,9 @@ The verifier checks file count, image-stem filenames, byte sizes, SHA256 and ext
 
 ## Control and numerical checks
 
-The control uses original input scales with the same generation settings as SWOCR. Its requested output cap is 32,768; it is a distinct configuration from TeleOCR's upstream 16k default. The [control prediction ZIP](../artifacts/submission/SWOCR_same_generation_baseline_predictions.zip), [paired prediction manifest](../artifacts/evidence/prediction_manifest.json), [per-page scores and tokens](EVIDENCE.md), and [statistics script](../scripts/recompute_statistics.py) are published. To score the control, extract that ZIP into its own directory and change only the prediction path in a copy of the scoring YAML.
+The control uses original input scales with the same generation settings as Ki-OCR. Its requested output cap is 32,768; it is a distinct configuration from TeleOCR's upstream 16k default. The [control prediction ZIP](../artifacts/submission/Ki-OCR_same_generation_baseline_predictions.zip), [paired prediction manifest](../artifacts/evidence/prediction_manifest.json), [per-page scores and tokens](EVIDENCE.md), and [statistics script](../scripts/recompute_statistics.py) are published. To score the control, extract that ZIP into its own directory and change only the prediction path in a copy of the scoring YAML.
 
-From the SWOCR root, using Python 3.11 or newer, reproduce aggregate metrics, content-token totals and the paired 20,000-replicate page bootstrap without a model or GT:
+From the Ki-OCR root, using Python 3.11 or newer, reproduce aggregate metrics, content-token totals and the paired 20,000-replicate page bootstrap without a model or GT:
 
 ```bash
 python -m pip install numpy==2.4.5

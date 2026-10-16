@@ -28,4 +28,4 @@ The helper modules import the Python standard library and each other. The runtim
 
 From the repository root, copy `configs/runtime_binding.example.json` to `runtime_binding.json` and set the external `source` and `model` directory paths. The example uses `"runtime_helpers": "bundled"` to select the included helper files in either a checkout or an installed wheel. Relative external paths resolve from the binding file's directory. Select `managed` or `standalone` according to [the inference instructions](REPRODUCE.md).
 
-`python -m swocr doctor --binding runtime_binding.json` checks file hashes and installed package versions before model loading. Add `--verify-weight` to hash the model weights as well. The CPU scale/selection interfaces and prediction verifier can be used separately from the inference backend.
+`python -m ki_ocr doctor --binding runtime_binding.json` checks file hashes and installed package versions before model loading. Add `--verify-weight` to hash the model weights as well. The CPU scale/selection interfaces and prediction verifier can be used separately from the inference backend.

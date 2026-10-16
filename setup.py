@@ -6,7 +6,7 @@ from setuptools.command.build_py import build_py
 
 RESOURCES = (
     "inference_ab.py",
-    "configs/swocr_ab.json",
+    "configs/ki_ocr_ab.json",
     "configs/runtime_binding.example.json",
     "runtime_helpers/context_runtime.py",
     "runtime_helpers/context_budget.py",
@@ -17,13 +17,13 @@ RESOURCES = (
 class BuildPy(build_py):
     def resource_pairs(self):
         source_root = Path(__file__).resolve().parent
-        target_root = Path(self.build_lib) / "swocr" / "_data"
+        target_root = Path(self.build_lib) / "ki_ocr" / "_data"
         return [(source_root / name, target_root / name) for name in RESOURCES]
 
     def run(self):
         super().run()
         pairs = self.resource_pairs()
-        target_root = (Path(self.build_lib) / "swocr" / "_data").resolve()
+        target_root = (Path(self.build_lib) / "ki_ocr" / "_data").resolve()
         expected = {target.resolve() for _, target in pairs}
         # Setuptools may reuse a previous build directory after a resource rename.
         # Only remove obsolete files from this package's generated resource tree.

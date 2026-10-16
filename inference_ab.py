@@ -1,4 +1,4 @@
-"""Actual frozen SWOCR A+B entry: CPU prepare or explicitly admitted inference."""
+"""Actual frozen Ki-OCR A+B entry: CPU prepare or explicitly admitted inference."""
 import argparse
 import contextlib
 import hashlib
@@ -41,22 +41,22 @@ def main(argv=None):
     args=p.parse_args(argv)
     if args.action=='prepare':
         os.environ['CUDA_VISIBLE_DEVICES']=''
-        from swocr.pipeline import prepare
+        from ki_ocr.pipeline import prepare
         result=prepare(args.binding,args.input,args.output)
         summary={k:v for k,v in result.items() if k not in ('rows','schedule')}
         summary['prepared_manifest_SHA256']=hashlib.sha256(Path(args.output).read_bytes()).hexdigest()
         print(json.dumps(summary,indent=2));return
     # Read policy before any model/torch imports or GPU calls.
-    from swocr.pipeline import read,sha
+    from ki_ocr.pipeline import read,sha
     if sha(args.prepared)!=args.prepared_sha:raise ValueError('Prepared manifest SHA differs')
     prepared=read(args.prepared)
     if read(prepared['binding_path'])['execution_policy']!='standalone':
         raise ValueError('Managed inference must call run_with_admitted_client inside the existing owner admission; this CLI cannot admit a cluster job')
-    from swocr.pipeline import validate_prepared
+    from ki_ocr.pipeline import validate_prepared
     validate_prepared(args.prepared,args.prepared_sha)
     if args.work_seconds<=0:raise ValueError('Positive explicit work window required')
-    from swocr.pipeline import create_client
-    from swocr.execution import run_with_admitted_client
+    from ki_ocr.pipeline import create_client
+    from ki_ocr.execution import run_with_admitted_client
     with standalone_admission(args.device,args.uuid,args.output):
         start=time.time();client=create_client(prepared['binding_path'])
         result=run_with_admitted_client(args.prepared,client,args.output,start+args.work_seconds,

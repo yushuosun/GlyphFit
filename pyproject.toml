@@ -3,8 +3,8 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "swocr-inputs"
-version = "0.1.1"
+name = "ki-ocr-inputs"
+version = "0.2.0"
 description = "Source-aware rendering and measured glyph input selection for TeleOCR"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
@@ -14,9 +14,9 @@ dependencies = []
 vision = ["numpy==2.2.6", "opencv-python-headless==4.14.0.94", "Pillow==11.3.0"]
 
 [project.scripts]
-swocr = "swocr.cli:main"
-glyphfit = "swocr.cli:main"
+ki-ocr = "ki_ocr.cli:main"
+glyphfit = "ki_ocr.cli:main"
 
 [tool.setuptools]
-packages = ["glyphfit", "swocr"]
+packages = ["glyphfit", "ki_ocr"]
 

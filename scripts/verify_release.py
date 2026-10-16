@@ -30,7 +30,7 @@ def verify_configuration(root):
 def verify(root, check_source=True):
     submission = root/'artifacts/submission'
     report = {}
-    for filename in ('SWOCR_EVALUATION_CONFIG_AND_RESULTS_R5.zip',):
+    for filename in ('Ki-OCR_EVALUATION_CONFIG_AND_RESULTS_R6.zip',):
         with zipfile.ZipFile(submission/filename) as z:
             assert z.testzip() is None
             files = json.loads(z.read('FILES_SHA256.json'))['files']
@@ -39,14 +39,14 @@ def verify(root, check_source=True):
                 data = z.read(name)
                 assert len(data) == expected['bytes'] and sha(data) == expected['SHA256'], name
             report['evaluation_members_verified'] = len(files)
-    release = json.loads((submission/'SWOCR_RELEASE_MANIFEST_R5.json').read_bytes())
+    release = json.loads((submission/'Ki-OCR_RELEASE_MANIFEST_R6.json').read_bytes())
     for key in ('prediction_attachment', 'baseline_prediction_attachment', 'evaluation_attachment'):
         expected = release[key]
         data = (submission/expected['filename']).read_bytes()
         assert len(data) == expected['bytes'] and sha(data) == expected['SHA256'], key
     manifests = json.loads((root/'artifacts/evidence/prediction_manifest.json').read_bytes())['files']
-    for arm, filename in [('OFFICIAL_ORIGINAL', 'SWOCR_same_generation_baseline_predictions.zip'),
-                          ('GLYPHFIT_FULL', 'SWOCR_OmniDocBench_v1.6_predictions.zip')]:
+    for arm, filename in [('OFFICIAL_ORIGINAL', 'Ki-OCR_same_generation_baseline_predictions.zip'),
+                          ('GLYPHFIT_FULL', 'Ki-OCR_OmniDocBench_v1.6_predictions.zip')]:
         rows = [row for row in manifests if row['arm'] == arm]
         with zipfile.ZipFile(submission/filename) as z:
             assert len(rows) == 1651 and len(z.namelist()) == 1651

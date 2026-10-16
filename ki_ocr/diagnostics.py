@@ -22,7 +22,7 @@ def doctor(binding_path, *, verify_weight=False):
     expected = {"source", "model", "runtime_helpers", "execution_policy"}
     if set(binding) != expected or binding["execution_policy"] not in ("managed", "standalone"):
         raise ValueError("Binding needs source/model/runtime_helpers/execution_policy")
-    cfg = json.loads(resource_path("configs/swocr_ab.json").read_text(encoding="utf8"))
+    cfg = json.loads(resource_path("configs/ki_ocr_ab.json").read_text(encoding="utf8"))
     files = []
     for root_key, pins_key in [("source", "consumer_code_pins"), ("model", "model_config_pins"),
                                ("model", "processor_asset_pins"), ("runtime_helpers", "private_runtime_pins")]:

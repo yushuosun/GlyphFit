@@ -1,5 +1,5 @@
-"""Compatibility alias for swocr.original_up."""
+"""Compatibility alias for ki_ocr.original_up."""
 import importlib
 import sys
 
-sys.modules[__name__] = importlib.import_module("swocr.original_up")
+sys.modules[__name__] = importlib.import_module("ki_ocr.original_up")

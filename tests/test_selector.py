@@ -1,7 +1,7 @@
 """CPU behavior checks of the packaged selector, not production inference."""
 import copy
 import unittest
-from swocr.best_effort import select
+from ki_ocr.best_effort import select
 
 class SelectorTests(unittest.TestCase):
     def setUp(self):

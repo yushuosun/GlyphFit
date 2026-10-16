@@ -1,5 +1,5 @@
 {
-  "schema": "SWOCR_RELEASED_RUN_EVIDENCE_V1",
+  "schema": "KI_OCR_RELEASED_RUN_EVIDENCE_V1",
   "status": "VERIFIED_EXISTING_TERMINAL_RECORDS",
   "dataset_pages": 1651,
   "completed_page_arms": 3302,

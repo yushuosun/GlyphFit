@@ -1,6 +1,6 @@
 # Repository contents
 
-The repository includes the source render cap, glyph estimator, scale menu/selector, full page-processing loop and runtime binding interfaces. `swocr.api` provides CPU scale/selection functions; the `swocr` CLI provides preparation, inference, dependency checks and prediction verification.
+The repository includes the source render cap, glyph estimator, scale menu/selector, full page-processing loop and runtime binding interfaces. `ki_ocr.api` provides CPU scale/selection functions; the `ki_ocr` CLI provides preparation, inference, dependency checks and prediction verification.
 
 The frozen configuration is in `configs/`, completed numerical results are in `results/`, and version identities are in `metadata/`. Public prediction and evaluation ZIPs are in `artifacts/submission/`.
 

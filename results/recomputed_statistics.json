@@ -1,11 +1,11 @@
 {
-  "schema": "SWOCR_RECOMPUTED_STATISTICS_V1",
+  "schema": "KI_OCR_RECOMPUTED_STATISTICS_V1",
   "numpy_version": "2.4.5",
   "input_SHA256": {
-    "per_page_metrics.json": "82dd3406538c6fa5b4cb22e37806c7030d83df091c6a7cd842d0439d0eed031f",
-    "per_page_tokens.json": "80c767422e15c64a447308f776b6e6efa04ca634d30bd3728412441f2253acb5"
+    "per_page_metrics.json": "b691daa489bea3d48a351b88beaa61ec2bae446e52ec08b299f527c938d97153",
+    "per_page_tokens.json": "03aa161e7efd012602880eaa37129d72697a633ac9d591925055e20fb8c21751"
   },
-  "script_SHA256": "296d0db11ec2da74e932d548a80e011f8be07248fca6eb239d56bf73dc0ba012",
+  "script_SHA256": "b1c0ba98dea120e291061ff6026a819c4087feeb9e4f5c5b856d22739c54d60c",
   "metric_page_denominators": {
     "Text_ED": 1557,
     "Formula_ED": 313,

@@ -55,7 +55,7 @@ def compute(evidence, replicates=20000, seed=20261014):
         token_summary[arm] = {'pages': len(rows), 'content_visual_tokens_total': total,
                               'content_visual_tokens_per_page': total/len(rows),
                               'content_ROIs': sum(r['content_ROI_count'] for r in rows)}
-    return {'schema': 'SWOCR_RECOMPUTED_STATISTICS_V1', 'numpy_version': np.__version__,
+    return {'schema': 'KI_OCR_RECOMPUTED_STATISTICS_V1', 'numpy_version': np.__version__,
             'input_SHA256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (metrics_path, tokens_path)},
             'script_SHA256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             'metric_page_denominators': denominators, 'components_raw': means, 'Overall_percent': overall,

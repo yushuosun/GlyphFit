@@ -1,6 +1,6 @@
 # Run full inference
 
-Use Linux with fork support and the pinned [dependencies](DEPENDENCIES.md). The inference configuration is [swocr_ab.json](../configs/swocr_ab.json), SHA256 `4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44`. Completed scores are in [results](../results/frozen_full1651.json).
+Use Linux with fork support and the pinned [dependencies](DEPENDENCIES.md). The inference configuration is [ki_ocr_ab.json](../configs/ki_ocr_ab.json), SHA256 `f0101c8d7d70761c7a65179e87d7abee080339ae19fcae02cdd8ebf803ddb708`. Completed scores are in [results](../results/frozen_full1651.json).
 
 The [configuration mapping](../metadata/configuration_equivalence.json) verifies that every runtime setting matches the original run configuration. [Release status](../metadata/RELEASE_STATUS.json) records completion separately from configuration metadata.
 
@@ -10,7 +10,7 @@ After setting the paths in `runtime_binding.json`, prepare the complete image di
 
 ```bash
 mkdir -p outputs
-python -m swocr prepare --binding runtime_binding.json --input /path/OmniDocBench/images --output outputs/prepared1651.json
+python -m ki_ocr prepare --binding runtime_binding.json --input /path/OmniDocBench/images --output outputs/prepared1651.json
 ```
 
 Preparation runs in a fresh CPU interpreter, checks the dependency versions and generation settings, and prints the saved file's SHA256 as `prepared_manifest_SHA256`. This differs from `config_SHA256` and `binding_SHA256`. Set the shell variable from the saved bytes:
@@ -24,7 +24,7 @@ PREPARED_SHA256=$(python -c "import hashlib; from pathlib import Path; print(has
 Set the binding's `execution_policy` to `standalone`. Supply the physical GPU index, UUID and total work window:
 
 ```bash
-python -m swocr run-standalone --prepared outputs/prepared1651.json --prepared-sha "$PREPARED_SHA256" --output outputs/run_001 --device GPU_INDEX --uuid EXACT_GPU_UUID --work-seconds EXPLICIT_BUDGET
+python -m ki_ocr run-standalone --prepared outputs/prepared1651.json --prepared-sha "$PREPARED_SHA256" --output outputs/run_001 --device GPU_INDEX --uuid EXACT_GPU_UUID --work-seconds EXPLICIT_BUDGET
 ```
 
 The runner checks GPU identity and idle state, acquires a standalone lock and includes model loading in the work window. Use the managed entry below for shared clusters.
@@ -34,8 +34,8 @@ The runner checks GPU identity and idle state, acquires a standalone lock and in
 Within an existing worker admitted by the cluster's owner/resource controls, call:
 
 ```python
-from swocr.pipeline import validate_prepared, create_client
-from swocr.execution import run_with_admitted_client
+from ki_ocr.pipeline import validate_prepared, create_client
+from ki_ocr.execution import run_with_admitted_client
 
 prepared = validate_prepared(prepared_path, expected_sha)
 client = create_client(prepared['binding_path'])

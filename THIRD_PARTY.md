@@ -1,6 +1,6 @@
 # Software and document rights
 
-SWOCR project source code and its original documentation are distributed under the [MIT License](LICENSE).
+Ki-OCR project source code and its original documentation are distributed under the [MIT License](LICENSE).
 
 The TeleOCR source and model, renderer, evaluator and their dependencies are obtained separately under their own terms. Their pinned identities and upstream links are in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md). The project context/runtime/journal helpers are included in `runtime_helpers/`.
 

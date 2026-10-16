@@ -1,7 +1,7 @@
 {
-  "schema": "SWOCR_CPU_REPAIR_VALIDATION_V1",
-  "checked_on": "2026-10-16",
-  "scope": "R3 packaging, runtime configuration equivalence and CPU CLI validation.",
+  "schema": "KI_OCR_CPU_REPAIR_VALIDATION_V1",
+  "checked_on": "2026-10-17",
+  "scope": "Ki-OCR R6 naming, runtime configuration equivalence, numerical recomputation, wheel installation and CPU CLI validation.",
   "CPU_unit_tests": {
     "passed": 21,
     "failed": 0,
@@ -10,9 +10,10 @@
   "wheel_build_tested": true,
   "wheel_install_tested": true,
   "wheel_cli_checks": [
-    "--help",
-    "a-scale returns pre_render_scale=2.0",
-    "prepare --help"
+    "ki-ocr a-scale returns pre_render_scale=2.0",
+    "python -m ki_ocr prepare --help",
+    "installed ki_ocr resource lookup",
+    "glyphfit compatibility alias"
   ],
   "wheel_repaired_entry_bytes_verified": true,
   "prediction_byte_checks": {
@@ -26,8 +27,9 @@
   "new_GPU_calls": 0,
   "new_model_loads": 0,
   "new_official_scoring_calls": 0,
-  "configuration_SHA256": "4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44",
+  "configuration_SHA256": "f0101c8d7d70761c7a65179e87d7abee080339ae19fcae02cdd8ebf803ddb708",
   "original_configuration_SHA256": "98285622f04fc61eb05a5abbce7d3579adcf3b8f8971f033548edef694a94fb6",
   "wheel_contains_only_current_resources": true,
-  "wheel_license_verified": "MIT"
+  "wheel_license_verified": "MIT",
+  "wheel_version": "0.2.0"
 }

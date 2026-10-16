@@ -10,7 +10,7 @@ RESOURCE_ROOT = BUNDLED_ROOT if BUNDLED_ROOT.is_dir() else PACKAGE_ROOT.parent
 def resource_path(relative):
     relative = Path(relative)
     if relative.is_absolute() or ".." in relative.parts:
-        raise ValueError("Resource path must stay relative to SWOCR resources")
+        raise ValueError("Resource path must stay relative to Ki-OCR resources")
     return RESOURCE_ROOT / relative
 
 

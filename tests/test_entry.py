@@ -21,7 +21,7 @@ class EntryTests(unittest.TestCase):
                 Path(destination).write_text(json.dumps(payload),encoding='utf-8')
                 return payload
             stream=io.StringIO()
-            with patch('swocr.pipeline.prepare',side_effect=prepare), patch.dict('os.environ'), redirect_stdout(stream):
+            with patch('ki_ocr.pipeline.prepare',side_effect=prepare), patch.dict('os.environ'), redirect_stdout(stream):
                 inference_ab.main(['prepare','--binding','unused','--input','unused','--output',str(output)])
             result=json.loads(stream.getvalue())
             self.assertEqual(result['prepared_manifest_SHA256'],hashlib.sha256(output.read_bytes()).hexdigest())

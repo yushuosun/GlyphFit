@@ -1,5 +1,5 @@
 include inference_ab.py
-include configs/swocr_ab.json
+include configs/ki_ocr_ab.json
 include configs/runtime_binding.example.json
 include runtime_helpers/context_runtime.py
 include runtime_helpers/context_budget.py

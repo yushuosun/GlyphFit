@@ -17,7 +17,7 @@ from .tele_canonical import plain
 from ._resources import read_binding, resource_path
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = resource_path('configs/swocr_ab.json')
+CONFIG = resource_path('configs/ki_ocr_ab.json')
 ARMS = ('OFFICIAL_ORIGINAL', 'GLYPHFIT_FULL')
 
 def sha(p):
@@ -112,7 +112,7 @@ def prepare(binding, inputs, output):
     result = {'schema': 'GLYPHFIT_AB_PREPARED_R2', 'status': 'CPU_PREPARED_BEFORE_WEIGHT_LOAD',
               'config_path': str(CONFIG.resolve()), 'config_SHA256': sha(CONFIG),
               'binding_path': str(Path(binding).resolve()), 'binding_SHA256': sha(binding),
-              'entry_code_pins': {'swocr/'+f.name: sha(f) for f in sorted((ROOT/'swocr').glob('*.py'))},
+              'entry_code_pins': {'ki_ocr/'+f.name: sha(f) for f in sorted((ROOT/'ki_ocr').glob('*.py'))},
               'rows': rows, 'source_N': len(rows), 'page_arm_N': len(rows)*2,
               'schedule': [{'slot': 2*i+j, 'page_index': i, 'arm': arm}
                            for i in range(len(rows)) for j, arm in enumerate(ARMS if i%2==0 else ARMS[::-1])],

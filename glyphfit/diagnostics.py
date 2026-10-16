@@ -1,5 +1,5 @@
-"""Compatibility alias for swocr.diagnostics."""
+"""Compatibility alias for ki_ocr.diagnostics."""
 import importlib
 import sys
 
-sys.modules[__name__] = importlib.import_module("swocr.diagnostics")
+sys.modules[__name__] = importlib.import_module("ki_ocr.diagnostics")

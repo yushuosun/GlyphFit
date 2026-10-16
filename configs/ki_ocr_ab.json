@@ -1,6 +1,6 @@
 {
   "schema": "GLYPHFIT_AB_FULL_INFERENCE_R2",
-  "method": "SWOCR source-aware rendering and region-adaptive scaling; same-generation original-input control",
+  "method": "Ki-OCR source-aware rendering and region-adaptive scaling; same-generation original-input control",
   "arms": [
     "OFFICIAL_ORIGINAL",
     "GLYPHFIT_FULL"

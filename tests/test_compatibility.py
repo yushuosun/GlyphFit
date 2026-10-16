@@ -12,10 +12,10 @@ class CompatibilityTests(unittest.TestCase):
         for name in ("api", "cli", "pipeline", "diagnostics", "execution", "menu",
                      "best_effort", "native_sourcecap", "original_up", "tele_canonical"):
             self.assertIs(importlib.import_module("glyphfit." + name),
-                          importlib.import_module("swocr." + name))
+                          importlib.import_module("ki_ocr." + name))
 
     def test_new_and_legacy_CLI_help(self):
-        for module in ("swocr", "glyphfit"):
+        for module in ("ki_ocr", "glyphfit"):
             for args in (["--help"], ["prepare", "--help"], ["run-standalone", "--help"]):
                 result = subprocess.run([sys.executable, "-m", module, *args],
                                         cwd=ROOT, capture_output=True, text=True)

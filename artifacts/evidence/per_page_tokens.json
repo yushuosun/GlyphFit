@@ -1,5 +1,5 @@
 {
-  "schema": "SWOCR_CONTENT_TOKENS_V1",
+  "schema": "KI_OCR_CONTENT_TOKENS_V1",
   "scope": "Image token occurrences in recorded engine prompt_token_ids for content ROIs; layout recorded separately; excludes warmup and CPU candidate measurement work.",
   "image_token_id": 151655,
   "model_config_SHA256": "92c5e15f1768dcb54bceae170043fbfefd248508159700b2179824b88c33ae75",

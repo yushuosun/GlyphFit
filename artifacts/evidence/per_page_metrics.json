@@ -1,5 +1,5 @@
 {
-  "schema": "SWOCR_PAIRED_PAGE_METRICS_V1",
+  "schema": "KI_OCR_PAIRED_PAGE_METRICS_V1",
   "page_count": 1651,
   "source_result_SHA256": {
     "OFFICIAL_ORIGINAL": "d3bbe7bb554cdb721fcf543ddcc6337ff31ec6d2897d73e502e2975205ece436",

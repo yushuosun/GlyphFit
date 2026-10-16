@@ -4,9 +4,9 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from swocr.api import source_render_scale
-from swocr.diagnostics import verify_predictions
-from swocr import native_sourcecap
+from ki_ocr.api import source_render_scale
+from ki_ocr.diagnostics import verify_predictions
+from ki_ocr import native_sourcecap
 
 TEST_ROOT = Path(__file__).resolve().parents[2]
 

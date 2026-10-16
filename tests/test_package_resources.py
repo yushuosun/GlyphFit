@@ -4,17 +4,17 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from swocr._resources import read_binding, resource_path
-from swocr.pipeline import CONFIG
+from ki_ocr._resources import read_binding, resource_path
+from ki_ocr.pipeline import CONFIG
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class ResourceTests(unittest.TestCase):
     def test_frozen_resource_bytes_match(self):
-        self.assertEqual(CONFIG.name, "swocr_ab.json")
+        self.assertEqual(CONFIG.name, "ki_ocr_ab.json")
         cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
-        self.assertEqual(CONFIG.read_bytes(), (ROOT / "configs/swocr_ab.json").read_bytes())
+        self.assertEqual(CONFIG.read_bytes(), (ROOT / "configs/ki_ocr_ab.json").read_bytes())
         for name, digest in cfg["private_runtime_pins"].items():
             self.assertEqual(hashlib.sha256(resource_path("runtime_helpers") .joinpath(name).read_bytes()).hexdigest(), digest)
         self.assertEqual(resource_path("inference_ab.py").read_bytes(), (ROOT / "inference_ab.py").read_bytes())

@@ -7,7 +7,7 @@ import posixpath
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-TAG = 'swocr-repro-r5'
+TAG = 'ki-ocr-repro-r6'
 LINK = re.compile(r'\]\(([^)]+)\)')
 
 
@@ -16,7 +16,7 @@ def verify_text(name, text, exists, package=False):
     for url in LINK.findall(text):
         parts = urlparse(url)
         if parts.scheme:
-            if parts.netloc == 'github.com' and parts.path.startswith('/yushuosun/SWOCR/'):
+            if parts.netloc == 'github.com' and parts.path.startswith('/yushuosun/Ki-OCR/'):
                 route = parts.path.split('/', 5)
                 if len(route) >= 5 and route[3] in ('tree', 'blob', 'raw'):
                     assert route[4] == TAG, (name, 'Outdated release link', url)
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         if any(part in ('build', 'dist', 'outputs', '.git') or part.startswith('.venv') for part in path.relative_to(ROOT).parts):
             continue
         count += verify_text(relative, path.read_text(encoding='utf-8'), lambda n: (ROOT/n).exists())
-    with zipfile.ZipFile(ROOT/'artifacts/submission/SWOCR_EVALUATION_CONFIG_AND_RESULTS_R5.zip') as z:
+    with zipfile.ZipFile(ROOT/'artifacts/submission/Ki-OCR_EVALUATION_CONFIG_AND_RESULTS_R6.zip') as z:
         names = set(z.namelist())
         for name in names:
             if name.endswith('.md'):

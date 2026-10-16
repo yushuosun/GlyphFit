@@ -1,5 +1,5 @@
-"""Compatibility alias for swocr.cli."""
+"""Compatibility alias for ki_ocr.cli."""
 import importlib
 import sys
 
-sys.modules[__name__] = importlib.import_module("swocr.cli")
+sys.modules[__name__] = importlib.import_module("ki_ocr.cli")
