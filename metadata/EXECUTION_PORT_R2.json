@@ -1,0 +1,26 @@
+{
+  "source_worker_SHA256": "5c4819640a1d2550b1258fb74137df1ba0b2c37831e6c3df76e429d4094f8ba2",
+  "ported_execution_SHA256": "c75a36d4b096636b4b5f8af8df8d80d43e55826d86b2854179fe73cc429a7319",
+  "unchanged": [
+    "actual processor resize tap",
+    "LANCZOS round(W*scale)",
+    "source crop meter q75",
+    "original_h strict gate",
+    "existing selector",
+    "fresh layout per arm",
+    "complete GEN comparison",
+    "actual content batch",
+    "native postprocess/middle/markdown assembly",
+    "raw journal then budget validation"
+  ],
+  "changes": [
+    "external existing model client instead of in-function owner admission/load",
+    "bindings instead of cluster constants",
+    "full input manifest schedule instead of fixed50/warmup",
+    "remove fixed50 CPU render lookup; same actual native renderer",
+    "output Markdown under arm/image-stem",
+    "drain callback before next page-arm"
+  ],
+  "production_worker_modified": false,
+  "newGPU": 0
+}

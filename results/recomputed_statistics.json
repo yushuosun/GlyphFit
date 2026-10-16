@@ -1,0 +1,72 @@
+{
+  "schema": "SWOCR_RECOMPUTED_STATISTICS_V1",
+  "numpy_version": "2.4.5",
+  "input_SHA256": {
+    "per_page_metrics.json": "82dd3406538c6fa5b4cb22e37806c7030d83df091c6a7cd842d0439d0eed031f",
+    "per_page_tokens.json": "80c767422e15c64a447308f776b6e6efa04ca634d30bd3728412441f2253acb5"
+  },
+  "script_SHA256": "296d0db11ec2da74e932d548a80e011f8be07248fca6eb239d56bf73dc0ba012",
+  "metric_page_denominators": {
+    "Text_ED": 1557,
+    "Formula_ED": 313,
+    "Formula_CDM": 313,
+    "Table_ED": 458,
+    "Table_TEDS": 458,
+    "Table_TEDS_S": 458,
+    "ReadingOrder_ED": 1638
+  },
+  "components_raw": {
+    "OFFICIAL_ORIGINAL": {
+      "Text_ED": 0.026968488778336883,
+      "Formula_ED": 0.048967186385450244,
+      "Formula_CDM": 0.9858972136950384,
+      "Table_ED": 0.034224808712150945,
+      "Table_TEDS": 0.9695827438417522,
+      "Table_TEDS_S": 0.9826007075597586,
+      "ReadingOrder_ED": 0.11836990858561101
+    },
+    "GLYPHFIT_FULL": {
+      "Text_ED": 0.025423642928000867,
+      "Formula_ED": 0.04463744165579167,
+      "Formula_CDM": 0.9894487934008497,
+      "Table_ED": 0.018791643657992255,
+      "Table_TEDS": 0.9882602026083288,
+      "Table_TEDS_S": 0.993500346782551,
+      "ReadingOrder_ED": 0.11870025939656478
+    }
+  },
+  "Overall_percent": {
+    "OFFICIAL_ORIGINAL": 97.61704895861511,
+    "GLYPHFIT_FULL": 98.40951176937257
+  },
+  "Overall_delta_pp": 0.7924628107574563,
+  "bootstrap": {
+    "seed": 20261014,
+    "replicates": 20000,
+    "RNG": "numpy.PCG64",
+    "unit": "Paired page; finite-page denominators recomputed for each component in each replicate",
+    "CI": "Two-sided percentile 95%, linear quantile",
+    "Overall_delta_pp_percentile95": [
+      0.5310502903871427,
+      1.083471136802443
+    ],
+    "scope": "Conditional uncertainty for these evaluated pages; document/source clusters are unavailable. This does not establish generalization to unseen datasets."
+  },
+  "tokens": {
+    "OFFICIAL_ORIGINAL": {
+      "pages": 1651,
+      "content_visual_tokens_total": 7046845,
+      "content_visual_tokens_per_page": 4268.228346456693,
+      "content_ROIs": 35142
+    },
+    "GLYPHFIT_FULL": {
+      "pages": 1651,
+      "content_visual_tokens_total": 3393255,
+      "content_visual_tokens_per_page": 2055.272562083586,
+      "content_ROIs": 35151
+    }
+  },
+  "content_visual_token_reduction_percent": 51.84717416091882,
+  "new_model_inference": false,
+  "new_official_scoring": false
+}

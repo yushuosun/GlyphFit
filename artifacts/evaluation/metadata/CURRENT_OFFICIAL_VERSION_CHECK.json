@@ -1,0 +1,420 @@
+{
+  "checked_UTC": "2026-10-15T03:05:42.008981+00:00",
+  "frozen_scoring_commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "official_main_commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "official_main_commit_date": "2026-09-11T10:01:16Z",
+  "official_main_commit_URL": "https://github.com/opendatalab/OmniDocBench/commit/f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "compare_URL": "https://github.com/opendatalab/OmniDocBench/compare/f133a71e9e91c3621c7ce8994200a7b394a06eb3...f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "compare_status": "identical",
+  "ahead_by": 0,
+  "behind_by": 0,
+  "changed_files": [],
+  "current_HF_dataset_revision": "aa1ee96d106dbe53d0ae59474d75c6e6d9b53fec",
+  "HF_GT_metadata_URL": "https://huggingface.co/api/datasets/opendatalab/OmniDocBench/tree/aa1ee96d106dbe53d0ae59474d75c6e6d9b53fec",
+  "current_GT_LFS_SHA256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+  "frozen_actual_GT_SHA256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+  "GT_bytes_equal": true,
+  "GT_bytes": 42208096,
+  "scorer_source_files": [
+    {
+      "file": "configs/end2end.yaml",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/configs/end2end.yaml",
+      "current_SHA256": "e61db7cbf29f220d7b01d31470ae2869405df9d49f0d9af02a735ce810f7214b",
+      "actual_frozen_SHA256": "e61db7cbf29f220d7b01d31470ae2869405df9d49f0d9af02a735ce810f7214b",
+      "equal": true,
+      "bytes": 902
+    },
+    {
+      "file": "pdf_validation.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/pdf_validation.py",
+      "current_SHA256": "7603a81d473f723d6b520773e0742ecd9259cdfffcd81d720c6a772acc8dfe68",
+      "actual_frozen_SHA256": "7603a81d473f723d6b520773e0742ecd9259cdfffcd81d720c6a772acc8dfe68",
+      "equal": true,
+      "bytes": 93
+    },
+    {
+      "file": "src/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/__init__.py",
+      "current_SHA256": "a0ab02a688904925f1e7b0c6b3655f63378ed6e9094317469d5fb6842dc12343",
+      "actual_frozen_SHA256": "a0ab02a688904925f1e7b0c6b3655f63378ed6e9094317469d5fb6842dc12343",
+      "equal": true,
+      "bytes": 42
+    },
+    {
+      "file": "src/cli.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/cli.py",
+      "current_SHA256": "16c74480ba4af2998a9a2572feed1c69cdd71bea1702bc1c290cf4e03a5ac28c",
+      "actual_frozen_SHA256": "16c74480ba4af2998a9a2572feed1c69cdd71bea1702bc1c290cf4e03a5ac28c",
+      "equal": true,
+      "bytes": 238
+    },
+    {
+      "file": "src/core/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/__init__.py",
+      "current_SHA256": "fefccccad6165c789f153a1095c5e7449bcdadc2dde4a46d8cbfb2b730520e21",
+      "actual_frozen_SHA256": "fefccccad6165c789f153a1095c5e7449bcdadc2dde4a46d8cbfb2b730520e21",
+      "equal": true,
+      "bytes": 95
+    },
+    {
+      "file": "src/core/matching/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/matching/__init__.py",
+      "current_SHA256": "732ce6c5708e68576c92a698553ff31634ed62f26e5aba7d385f26c34de5d5e4",
+      "actual_frozen_SHA256": "732ce6c5708e68576c92a698553ff31634ed62f26e5aba7d385f26c34de5d5e4",
+      "equal": true,
+      "bytes": 816
+    },
+    {
+      "file": "src/core/matching/match.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/matching/match.py",
+      "current_SHA256": "b25318b4e752b1e75cff2d9d736c1f2346daee3facb6771fe7adad34afc316fb",
+      "actual_frozen_SHA256": "b25318b4e752b1e75cff2d9d736c1f2346daee3facb6771fe7adad34afc316fb",
+      "equal": true,
+      "bytes": 29579
+    },
+    {
+      "file": "src/core/matching/match_quick.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/matching/match_quick.py",
+      "current_SHA256": "38925e1e746b3396eb8d73fa6535cc0c2b0cab42db09cef01a1b0857c5aab906",
+      "actual_frozen_SHA256": "38925e1e746b3396eb8d73fa6535cc0c2b0cab42db09cef01a1b0857c5aab906",
+      "equal": true,
+      "bytes": 70150
+    },
+    {
+      "file": "src/core/metrics.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/metrics.py",
+      "current_SHA256": "d7905915614f4fa56d50de5b19e45f27346e5088c09b66e36b941ee456b0d643",
+      "actual_frozen_SHA256": "d7905915614f4fa56d50de5b19e45f27346e5088c09b66e36b941ee456b0d643",
+      "equal": true,
+      "bytes": 5931
+    },
+    {
+      "file": "src/core/pipeline.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/pipeline.py",
+      "current_SHA256": "078a538bb39803932c58468680871f1927cc181d951e9631044505fe77e3e26c",
+      "actual_frozen_SHA256": "078a538bb39803932c58468680871f1927cc181d951e9631044505fe77e3e26c",
+      "equal": true,
+      "bytes": 2416
+    },
+    {
+      "file": "src/core/pipeline_eval.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/pipeline_eval.py",
+      "current_SHA256": "623406c80d2d99a1cbdecf5539a3031fe4fa8919e51a6b0eae67c6bdd8a6a376",
+      "actual_frozen_SHA256": "623406c80d2d99a1cbdecf5539a3031fe4fa8919e51a6b0eae67c6bdd8a6a376",
+      "equal": true,
+      "bytes": 7379
+    },
+    {
+      "file": "src/core/preprocess/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/__init__.py",
+      "current_SHA256": "edbdc1afd134a436ac5a35bab93b04aafa9fa2bb2496cd043fe44daadb06c5a8",
+      "actual_frozen_SHA256": "edbdc1afd134a436ac5a35bab93b04aafa9fa2bb2496cd043fe44daadb06c5a8",
+      "equal": true,
+      "bytes": 1353
+    },
+    {
+      "file": "src/core/preprocess/data_preprocess.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/data_preprocess.py",
+      "current_SHA256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd",
+      "actual_frozen_SHA256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd",
+      "equal": true,
+      "bytes": 28190
+    },
+    {
+      "file": "src/core/preprocess/extract.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/extract.py",
+      "current_SHA256": "6c10a9a9982c3f10436e0ccde73c216688fe129588f49ba6121170bd82b421eb",
+      "actual_frozen_SHA256": "6c10a9a9982c3f10436e0ccde73c216688fe129588f49ba6121170bd82b421eb",
+      "equal": true,
+      "bytes": 41872
+    },
+    {
+      "file": "src/core/preprocess/formula_cdm.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/formula_cdm.py",
+      "current_SHA256": "e8c8cbc6b82f8dda20e3be468cb8c4566993ebea56bc7116334a2c45ebb5f3c3",
+      "actual_frozen_SHA256": "e8c8cbc6b82f8dda20e3be468cb8c4566993ebea56bc7116334a2c45ebb5f3c3",
+      "equal": true,
+      "bytes": 11068
+    },
+    {
+      "file": "src/core/preprocess/read_files.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/read_files.py",
+      "current_SHA256": "d950fa135bdcd2e13b50cbf92c5d3931b88e3c0d1e40c30eb53ee2baf627051a",
+      "actual_frozen_SHA256": "d950fa135bdcd2e13b50cbf92c5d3931b88e3c0d1e40c30eb53ee2baf627051a",
+      "equal": true,
+      "bytes": 540
+    },
+    {
+      "file": "src/core/preprocess/table_postprocess.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/table_postprocess.py",
+      "current_SHA256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762",
+      "actual_frozen_SHA256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762",
+      "equal": true,
+      "bytes": 4100
+    },
+    {
+      "file": "src/core/preprocess/table_utils.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/table_utils.py",
+      "current_SHA256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731",
+      "actual_frozen_SHA256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731",
+      "equal": true,
+      "bytes": 8420
+    },
+    {
+      "file": "src/core/preprocess/text_postprocess.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/preprocess/text_postprocess.py",
+      "current_SHA256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29",
+      "actual_frozen_SHA256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29",
+      "equal": true,
+      "bytes": 14854
+    },
+    {
+      "file": "src/core/registry.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/core/registry.py",
+      "current_SHA256": "b7c0361cae96c0d545d0f4e20882e46eba0fc45ab13b185637b11b39b5fc31ae",
+      "actual_frozen_SHA256": "b7c0361cae96c0d545d0f4e20882e46eba0fc45ab13b185637b11b39b5fc31ae",
+      "equal": true,
+      "bytes": 1397
+    },
+    {
+      "file": "src/dataset/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/dataset/__init__.py",
+      "current_SHA256": "55cf8e6bfc9178b5a7cce5990dad46cd7b911995414a2e4ec94007d0af4087dc",
+      "actual_frozen_SHA256": "55cf8e6bfc9178b5a7cce5990dad46cd7b911995414a2e4ec94007d0af4087dc",
+      "equal": true,
+      "bytes": 301
+    },
+    {
+      "file": "src/dataset/end2end_dataset.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/dataset/end2end_dataset.py",
+      "current_SHA256": "1f6c0fadf3ddc48d0f5e5a7f54a884f7604cadb6c69b1360ef6c729f036f1d0c",
+      "actual_frozen_SHA256": "1f6c0fadf3ddc48d0f5e5a7f54a884f7604cadb6c69b1360ef6c729f036f1d0c",
+      "equal": true,
+      "bytes": 101711
+    },
+    {
+      "file": "src/dataset/table_dataset.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/dataset/table_dataset.py",
+      "current_SHA256": "d8c8cea64ee4b388710ba081d55fbc4ac61cc3e81dc4b1f87cb0bca921636e1b",
+      "actual_frozen_SHA256": "d8c8cea64ee4b388710ba081d55fbc4ac61cc3e81dc4b1f87cb0bca921636e1b",
+      "equal": true,
+      "bytes": 2171
+    },
+    {
+      "file": "src/metrics/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/__init__.py",
+      "current_SHA256": "4ee2d3b83131e414093b08592382d1915e0ad2015025aea7d8197baf85aca479",
+      "actual_frozen_SHA256": "4ee2d3b83131e414093b08592382d1915e0ad2015025aea7d8197baf85aca479",
+      "equal": true,
+      "bytes": 132
+    },
+    {
+      "file": "src/metrics/cal_metric.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cal_metric.py",
+      "current_SHA256": "8cad72aa277581f7c2b63e7fc22ca4992992f407be2933353e66268b1b79246b",
+      "actual_frozen_SHA256": "8cad72aa277581f7c2b63e7fc22ca4992992f407be2933353e66268b1b79246b",
+      "equal": true,
+      "bytes": 26141
+    },
+    {
+      "file": "src/metrics/cdm/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/__init__.py",
+      "current_SHA256": "5e531eb3ab7d32d8e4add39101e8fd0f3b3ebd18c3c41d904a502a1574c55f55",
+      "actual_frozen_SHA256": "5e531eb3ab7d32d8e4add39101e8fd0f3b3ebd18c3c41d904a502a1574c55f55",
+      "equal": true,
+      "bytes": 228
+    },
+    {
+      "file": "src/metrics/cdm/cdm.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/cdm.py",
+      "current_SHA256": "6e07d3e8271740295d8f4e874f7a55942379327e12d74c56db5f1cb41fd2bbf7",
+      "actual_frozen_SHA256": "6e07d3e8271740295d8f4e874f7a55942379327e12d74c56db5f1cb41fd2bbf7",
+      "equal": true,
+      "bytes": 13327
+    },
+    {
+      "file": "src/metrics/cdm/modules/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/__init__.py",
+      "current_SHA256": "445c1d23fe34064c7451fb333b15029636c66db4d88d091ed6286901c8984327",
+      "actual_frozen_SHA256": "445c1d23fe34064c7451fb333b15029636c66db4d88d091ed6286901c8984327",
+      "equal": true,
+      "bytes": 128
+    },
+    {
+      "file": "src/metrics/cdm/modules/latex2bbox_color.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/latex2bbox_color.py",
+      "current_SHA256": "df6f61f2d89f7fe12d317b3987fea9cfb3484472522852a0c5f6a56953b42daf",
+      "actual_frozen_SHA256": "df6f61f2d89f7fe12d317b3987fea9cfb3484472522852a0c5f6a56953b42daf",
+      "equal": true,
+      "bytes": 25281
+    },
+    {
+      "file": "src/metrics/cdm/modules/latex_processor.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/latex_processor.py",
+      "current_SHA256": "87bdd03e674b970ba96e966f6bfd352f968b3dd4f8625e3bf7c32a2d8599f209",
+      "actual_frozen_SHA256": "87bdd03e674b970ba96e966f6bfd352f968b3dd4f8625e3bf7c32a2d8599f209",
+      "equal": true,
+      "bytes": 28269
+    },
+    {
+      "file": "src/metrics/cdm/modules/latex_render_percentage.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/latex_render_percentage.py",
+      "current_SHA256": "683621e677968436dbf101a13d10f1d2f049a858520de24ee60e8c08b1962f89",
+      "actual_frozen_SHA256": "683621e677968436dbf101a13d10f1d2f049a858520de24ee60e8c08b1962f89",
+      "equal": true,
+      "bytes": 3444
+    },
+    {
+      "file": "src/metrics/cdm/modules/ransac.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/ransac.py",
+      "current_SHA256": "2ea2d0bfa06ff150a108a959a060782beb30efc4aecb25c19cc25967378ebde0",
+      "actual_frozen_SHA256": "2ea2d0bfa06ff150a108a959a060782beb30efc4aecb25c19cc25967378ebde0",
+      "equal": true,
+      "bytes": 1882
+    },
+    {
+      "file": "src/metrics/cdm/modules/texlive_env.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/texlive_env.py",
+      "current_SHA256": "59395404645c6658953299c92cbecc4d0423aa7b3a324a89bfee15fcb2d2a876",
+      "actual_frozen_SHA256": "59395404645c6658953299c92cbecc4d0423aa7b3a324a89bfee15fcb2d2a876",
+      "equal": true,
+      "bytes": 11727
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/__init__.py",
+      "current_SHA256": "672e0d66f6d98858023ee0a90fa23f135b37fb0df4db0129396b32bc17a4fdd9",
+      "actual_frozen_SHA256": "672e0d66f6d98858023ee0a90fa23f135b37fb0df4db0129396b32bc17a4fdd9",
+      "equal": true,
+      "bytes": 219
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/katex_nodes.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/katex_nodes.py",
+      "current_SHA256": "e818410d1f164f5a9100ea8fe4b1806a2ca76f3f62206812c46ae0933ebcc288",
+      "actual_frozen_SHA256": "e818410d1f164f5a9100ea8fe4b1806a2ca76f3f62206812c46ae0933ebcc288",
+      "equal": true,
+      "bytes": 1790
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/katex_renderer.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/katex_renderer.py",
+      "current_SHA256": "5763d61e21c27608778c0b52120c2a84a3145e525fe08357444627ccbad7dd8e",
+      "actual_frozen_SHA256": "5763d61e21c27608778c0b52120c2a84a3145e525fe08357444627ccbad7dd8e",
+      "equal": true,
+      "bytes": 12547
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/options.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/options.py",
+      "current_SHA256": "330c32f2a39f708d5adee1f8a63acc45870f0c8443a45a258cdca968c0e73bce",
+      "actual_frozen_SHA256": "330c32f2a39f708d5adee1f8a63acc45870f0c8443a45a258cdca968c0e73bce",
+      "equal": true,
+      "bytes": 3160
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/parse_guard.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/parse_guard.py",
+      "current_SHA256": "2caa82605ebe3f9399d5dd0c00feaa4ac8201f8ae13826aa4e0da7deadf0c440",
+      "actual_frozen_SHA256": "2caa82605ebe3f9399d5dd0c00feaa4ac8201f8ae13826aa4e0da7deadf0c440",
+      "equal": true,
+      "bytes": 3158
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/preprocess_formula.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/preprocess_formula.py",
+      "current_SHA256": "b6a344cc47c3662a6f64153de2d6f91026aa84add027d59c7aa7fde3cfd2e37c",
+      "actual_frozen_SHA256": "b6a344cc47c3662a6f64153de2d6f91026aa84add027d59c7aa7fde3cfd2e37c",
+      "equal": true,
+      "bytes": 3275
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/preprocess_tabular.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/preprocess_tabular.py",
+      "current_SHA256": "bd71ee1aa580011bdfcdcec9d093430eaf59674323f9791bd65f4113b847fcbf",
+      "actual_frozen_SHA256": "bd71ee1aa580011bdfcdcec9d093430eaf59674323f9791bd65f4113b847fcbf",
+      "equal": true,
+      "bytes": 2038
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/pylatexenc_to_katex.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/pylatexenc_to_katex.py",
+      "current_SHA256": "214be62fc429273f871f4b4e29290555bd37c4ff28f0a89186340163d87beeff",
+      "actual_frozen_SHA256": "214be62fc429273f871f4b4e29290555bd37c4ff28f0a89186340163d87beeff",
+      "equal": true,
+      "bytes": 34267
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/pylatexenc_tokenizer.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/pylatexenc_tokenizer.py",
+      "current_SHA256": "2ea3d0ffe9947e9ca48e6bec1ddc2fc5f05471daa620c4369a59465f81159e31",
+      "actual_frozen_SHA256": "2ea3d0ffe9947e9ca48e6bec1ddc2fc5f05471daa620c4369a59465f81159e31",
+      "equal": true,
+      "bytes": 3973
+    },
+    {
+      "file": "src/metrics/cdm/modules/tokenize_latex/tokenize_latex.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/tokenize_latex/tokenize_latex.py",
+      "current_SHA256": "9f77e5dc3194f3fce9cd7f2162a5c9a23cd7bb162ac27717d1c5cbc44a7fa0d5",
+      "actual_frozen_SHA256": "9f77e5dc3194f3fce9cd7f2162a5c9a23cd7bb162ac27717d1c5cbc44a7fa0d5",
+      "equal": true,
+      "bytes": 4645
+    },
+    {
+      "file": "src/metrics/cdm/modules/visual_matcher.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm/modules/visual_matcher.py",
+      "current_SHA256": "6c51325e6d7ad7047d85db0c653f6fa730ae717e219cb18253c0473a825c3257",
+      "actual_frozen_SHA256": "6c51325e6d7ad7047d85db0c653f6fa730ae717e219cb18253c0473a825c3257",
+      "equal": true,
+      "bytes": 7123
+    },
+    {
+      "file": "src/metrics/cdm_metric.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/cdm_metric.py",
+      "current_SHA256": "13bb3282c3967d2851023c4367b71a0af668f49a2c34972a10370a17be16602c",
+      "actual_frozen_SHA256": "13bb3282c3967d2851023c4367b71a0af668f49a2c34972a10370a17be16602c",
+      "equal": true,
+      "bytes": 3832
+    },
+    {
+      "file": "src/metrics/table_metric.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/metrics/table_metric.py",
+      "current_SHA256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e",
+      "actual_frozen_SHA256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e",
+      "equal": true,
+      "bytes": 6230
+    },
+    {
+      "file": "src/runtime/__init__.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/runtime/__init__.py",
+      "current_SHA256": "d96ae788e3ac2407b4cd3dcc47fee2bb09ff91c34b864d45853114b8380b2d36",
+      "actual_frozen_SHA256": "d96ae788e3ac2407b4cd3dcc47fee2bb09ff91c34b864d45853114b8380b2d36",
+      "equal": true,
+      "bytes": 368
+    },
+    {
+      "file": "src/runtime/concurrency.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/runtime/concurrency.py",
+      "current_SHA256": "c18081098ff612d611f5a7d9b33fb3fea1e6752b6b2eebfb542bb88974af6439",
+      "actual_frozen_SHA256": "c18081098ff612d611f5a7d9b33fb3fea1e6752b6b2eebfb542bb88974af6439",
+      "equal": true,
+      "bytes": 1616
+    },
+    {
+      "file": "src/runtime/eval_report.py",
+      "URL": "https://raw.githubusercontent.com/opendatalab/OmniDocBench/f133a71e9e91c3621c7ce8994200a7b394a06eb3/src/runtime/eval_report.py",
+      "current_SHA256": "dd2dd74965220783399ba840bc7dae8937c2794b40a6ff75e3fba7538f9069ad",
+      "actual_frozen_SHA256": "dd2dd74965220783399ba840bc7dae8937c2794b40a6ff75e3fba7538f9069ad",
+      "equal": true,
+      "bytes": 23171
+    }
+  ],
+  "source_file_comparison_count": 49,
+  "source_file_equal_count": 49,
+  "official_image_metadata_count": 1651,
+  "GT_body_downloaded": false,
+  "image_bodies_downloaded": false,
+  "new_scoring": false,
+  "new_GPU_calls": 0,
+  "version_changes_requiring_new_score_detected": false
+}

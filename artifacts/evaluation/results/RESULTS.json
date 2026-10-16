@@ -1,0 +1,53 @@
+{
+  "status": "EXISTING_FROZEN_SCORES_CURRENT_VERSION_COMPATIBLE_BY_EXACT_IDENTITIES",
+  "new_score_calls": 0,
+  "version_check_file": "../metadata/VERSION_DIFF_AND_REUSE.json",
+  "score_units": "Overall is percent; component metrics are raw ratios",
+  "metric_page_denominators": {
+    "Text_ED": 1557,
+    "Formula_ED": 313,
+    "Formula_CDM": 313,
+    "Table_ED": 458,
+    "Table_TEDS": 458,
+    "Table_TEDS_S": 458,
+    "ReadingOrder_ED": 1638
+  },
+  "dataset_pages": 1651,
+  "baseline": {
+    "components": {
+      "Text_ED": 0.026968488778336883,
+      "Formula_ED": 0.04896718638545025,
+      "Formula_CDM": 0.9858972136950384,
+      "Table_ED": 0.034224808712150945,
+      "Table_TEDS": 0.9695827438417522,
+      "Table_TEDS_S": 0.9826007075597586,
+      "ReadingOrder_ED": 0.11836990858561101
+    },
+    "Overall": 97.61704895861511
+  },
+  "GlyphFit": {
+    "components": {
+      "Text_ED": 0.025423642928000867,
+      "Formula_ED": 0.04463744165579168,
+      "Formula_CDM": 0.9894487934008497,
+      "Table_ED": 0.018791643657992255,
+      "Table_TEDS": 0.9882602026083288,
+      "Table_TEDS_S": 0.9935003467825511,
+      "ReadingOrder_ED": 0.11870025939656478
+    },
+    "Overall": 98.40951176937257
+  },
+  "Overall_delta_pp": 0.7924628107574563,
+  "Overall_delta_pp_percentile95": [
+    0.5310502903871427,
+    1.083471136802443
+  ],
+  "bootstrap_replicates": 20000,
+  "bootstrap_seed": 20261014,
+  "source_prediction_binding_SHA256": "9562da335731e67a492fce3e2835917628cdf97f0415fc46179e34e8b9b04ba1",
+  "source_baseline_result_SHA256": "d3bbe7bb554cdb721fcf543ddcc6337ff31ec6d2897d73e502e2975205ece436",
+  "source_GlyphFit_result_SHA256": "5d89cb8e455a771eede9095888e52d6ee3c3def92a7d630db1d06e4c3e663c30",
+  "official_leaderboard_acceptance": "NOT_SUBMITTED_OR_INDEPENDENTLY_VERIFIED",
+  "official_scoring_commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "GT_SHA256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496"
+}

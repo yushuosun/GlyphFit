@@ -1,0 +1,33 @@
+{
+  "schema": "SWOCR_CPU_REPAIR_VALIDATION_V1",
+  "checked_on": "2026-10-16",
+  "scope": "R3 packaging, runtime configuration equivalence and CPU CLI validation.",
+  "CPU_unit_tests": {
+    "passed": 21,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "wheel_build_tested": true,
+  "wheel_install_tested": true,
+  "wheel_cli_checks": [
+    "--help",
+    "a-scale returns pre_render_scale=2.0",
+    "prepare --help"
+  ],
+  "wheel_repaired_entry_bytes_verified": true,
+  "prediction_byte_checks": {
+    "OFFICIAL_ORIGINAL": 1651,
+    "GLYPHFIT_FULL": 1651
+  },
+  "prediction_bodies_in_repo": true,
+  "runtime_helpers_bundled": true,
+  "statistics_recomputed_from_released_per_page_evidence": true,
+  "fresh_checkout_GPU_tested": false,
+  "new_GPU_calls": 0,
+  "new_model_loads": 0,
+  "new_official_scoring_calls": 0,
+  "configuration_SHA256": "4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44",
+  "original_configuration_SHA256": "98285622f04fc61eb05a5abbce7d3579adcf3b8f8971f033548edef694a94fb6",
+  "wheel_contains_only_current_resources": true,
+  "wheel_license_verified": "MIT"
+}

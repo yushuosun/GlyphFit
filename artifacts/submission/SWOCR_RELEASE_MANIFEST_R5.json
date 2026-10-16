@@ -1,0 +1,40 @@
+{
+  "schema": "SWOCR_EVALUATION_RELEASE_V3",
+  "release_version": "R5",
+  "release_tag": "swocr-repro-r5",
+  "repository": "https://github.com/yushuosun/SWOCR",
+  "release_index": "https://github.com/yushuosun/SWOCR/blob/swocr-repro-r5/docs/RELEASE.md",
+  "dataset_pages": 1651,
+  "method_name_mapping": "GlyphFit / GLYPHFIT_FULL identifiers refer to SWOCR.",
+  "release_configuration": {
+    "path": "configs/swocr_ab.json",
+    "bytes": 25303,
+    "SHA256": "4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44"
+  },
+  "original_run_configuration": {
+    "path": "metadata/history/original_inference_config.json",
+    "bytes": 26080,
+    "SHA256": "98285622f04fc61eb05a5abbce7d3579adcf3b8f8971f033548edef694a94fb6"
+  },
+  "configuration_equivalence": "metadata/configuration_equivalence.json",
+  "new_model_inference": false,
+  "new_official_scoring": false,
+  "prediction_attachment": {
+    "filename": "SWOCR_OmniDocBench_v1.6_predictions.zip",
+    "MD_count": 1651,
+    "bytes": 3043309,
+    "SHA256": "8cc05f963245390d1d6865a63539d8fc15fe4cfc243f4a3fda8fd4742ce6b69c"
+  },
+  "baseline_prediction_attachment": {
+    "filename": "SWOCR_same_generation_baseline_predictions.zip",
+    "MD_count": 1651,
+    "bytes": 3045081,
+    "SHA256": "d13555bc91dde68f919fe3da43a61ff52496dd0e4a7f8e2ca005254acf7371d5"
+  },
+  "evaluation_attachment": {
+    "filename": "SWOCR_EVALUATION_CONFIG_AND_RESULTS_R5.zip",
+    "members": 28,
+    "bytes": 615691,
+    "SHA256": "b6ea3c5b16ea11cf5b97c581caa2b5bf7e92fc26f6cdffb149fc6db6cccae007"
+  }
+}

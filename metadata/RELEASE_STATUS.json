@@ -1,0 +1,16 @@
+{
+  "schema": "SWOCR_RELEASE_STATUS_V1",
+  "release_tag": "swocr-repro-r5",
+  "package_revision": "R5",
+  "dataset": "OmniDocBench v1.6_full",
+  "dataset_pages": 1651,
+  "completed_page_arms": 3302,
+  "recorded_run_status": "COMPLETE",
+  "completion_record": "artifacts/evidence/run_completion.json",
+  "recorded_run_config_SHA256": "98285622f04fc61eb05a5abbce7d3579adcf3b8f8971f033548edef694a94fb6",
+  "release_config_SHA256": "4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44",
+  "configuration_mapping": "metadata/configuration_equivalence.json",
+  "results": "results/frozen_full1651.json",
+  "new_model_inference": false,
+  "new_official_scoring": false
+}

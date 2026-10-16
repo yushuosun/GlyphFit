@@ -1,0 +1,73 @@
+{
+  "official_scoring_commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "GT_SHA256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+  "dataset_pages": 1651,
+  "actual_normalized_evaluator_config_with_relative_input_paths": {
+    "end2end_eval": {
+      "dataset": {
+        "dataset_name": "end2end_dataset",
+        "ground_truth": {
+          "data_path": "./data/OmniDocBench.json"
+        },
+        "match_method": "quick_match",
+        "match_timeout_sec": 420,
+        "match_workers": 8,
+        "prediction": {
+          "data_path": "./predictions/GLYPHFIT_FULL"
+        },
+        "quick_match_truncated_timeout_sec": 300,
+        "timeout_fallback_max_chunk_span": 10,
+        "timeout_fallback_order_penalty": 0.1
+      },
+      "metrics": {
+        "display_formula": {
+          "cdm_workers": 8,
+          "metric": [
+            "Edit_dist",
+            "CDM"
+          ]
+        },
+        "reading_order": {
+          "metric": [
+            "Edit_dist"
+          ]
+        },
+        "table": {
+          "metric": [
+            "TEDS",
+            "Edit_dist"
+          ],
+          "teds_workers": 8
+        },
+        "text_block": {
+          "metric": [
+            "Edit_dist"
+          ]
+        }
+      }
+    }
+  },
+  "original_score_config_SHA256": "c208ea703e46302933d75dbe231d5a8a691dd55f6e57c338565836e6291ba903",
+  "original_GlyphFit_score_RESULT_SHA256": "5d89cb8e455a771eede9095888e52d6ee3c3def92a7d630db1d06e4c3e663c30",
+  "original_official_metric_result_SHA256": "14aac2302c3c95f4368cb5704d1d998d0deee0c4c8a5c6f2825ca0c458c1ef72",
+  "score_driver_SHA256": "3fcb2829f39ed5fe8260a3447ed82208ae2f4c184b9494cd3e51f5398edbbced",
+  "workers": {
+    "match": 8,
+    "CDM": 8,
+    "TEDS": 8,
+    "BLAS": 1
+  },
+  "metric_page_denominators": {
+    "Text_ED": 1557,
+    "Formula_ED": 313,
+    "Formula_CDM": 313,
+    "Table_ED": 458,
+    "Table_TEDS": 458,
+    "Table_TEDS_S": 458,
+    "ReadingOrder_ED": 1638
+  },
+  "aggregation": "Original finite-page macro; page text/table ED upper_len-weighted; page CDM/TEDS sample mean",
+  "Overall_formula": "100/3 * (1 - mean_finite_page_Text_ED + mean_finite_page_Formula_CDM + mean_finite_page_Table_TEDS)",
+  "paths_changed_for_portability_only": true,
+  "new_scoring_performed": false
+}

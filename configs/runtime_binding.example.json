@@ -1,0 +1,6 @@
+{
+  "source": "/path/to/pinned-TeleOCR-source",
+  "model": "/path/to/pinned-TeleOCR-model",
+  "runtime_helpers": "bundled",
+  "execution_policy": "managed"
+}

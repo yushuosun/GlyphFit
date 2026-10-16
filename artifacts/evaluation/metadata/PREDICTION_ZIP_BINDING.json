@@ -1,0 +1,14 @@
+{
+  "filename": "SWOCR_OmniDocBench_v1.6_predictions.zip",
+  "bytes": 3043309,
+  "SHA256": "8cc05f963245390d1d6865a63539d8fc15fe4cfc243f4a3fda8fd4742ce6b69c",
+  "MD_count": 1651,
+  "flat_image_stem_filenames": true,
+  "all_MD_bytes_and_SHA_verified": true,
+  "GT_SHA256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+  "official_scoring_commit": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "Overall": 98.40951176937257,
+  "source_full_prediction_binding_SHA256": "9562da335731e67a492fce3e2835917628cdf97f0415fc46179e34e8b9b04ba1",
+  "source_GlyphFit_score_RESULT_SHA256": "5d89cb8e455a771eede9095888e52d6ee3c3def92a7d630db1d06e4c3e663c30",
+  "predictions_in_this_evaluation_ZIP": false
+}

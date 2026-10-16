@@ -1,0 +1,2 @@
+# Frozen file hashes must survive checkout on every operating system.
+* -text

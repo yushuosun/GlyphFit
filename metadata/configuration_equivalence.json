@@ -1,0 +1,14 @@
+{
+  "schema": "SWOCR_CONFIGURATION_EQUIVALENCE_V1",
+  "original_path": "metadata/history/original_inference_config.json",
+  "original_SHA256": "98285622f04fc61eb05a5abbce7d3579adcf3b8f8971f033548edef694a94fb6",
+  "release_path": "configs/swocr_ab.json",
+  "release_SHA256": "4b774283820f732abdf26fe6a9a2c1ef27436f1d2bf18d93bf671e778b354d44",
+  "changed_metadata_keys": [
+    "method",
+    "scientific_freeze_UTC",
+    "final_score"
+  ],
+  "verification": "All remaining JSON values are exactly equal. The changed keys are descriptive metadata and are not consumed by the runtime.",
+  "original_record_preserved_byte_for_byte": true
+}
