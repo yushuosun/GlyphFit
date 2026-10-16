@@ -4,7 +4,7 @@
 
 SWOCR is a training-free inference-time adaptation method built on a frozen TeleOCR-1.2B. Without modifying TeleOCR's architecture or model weights, SWOCR adaptively adjusts the input scales of document pages and detected layout regions according to the visual scale of the input document. This allows different regions to be parsed at scales better suited to recognition while improving visual budget utilization.
 
-On **OmniDocBench v1.6_full (1,651 pages)**, the released SWOCR configuration achieves **98.40951 Overall**. The recorded statistics show that SWOCR reduces average content-recognition visual tokens per page from 4268.23 to 2055.27, a reduction of 51.85%.
+On **OmniDocBench v1.6_full (1,651 pages)**, the released SWOCR configuration achieves **98.40951 Overall**. The recorded statistics show that, compared with TeleOCR, SWOCR reduces average content-recognition visual tokens per page from 4268.23 to 2055.27, a reduction of 51.85%.
 
 ## Why input scale matters
 

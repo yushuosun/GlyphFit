@@ -4,7 +4,7 @@
 
 SWOCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adaptation 方法。SWOCR 不修改 TeleOCR 的模型架构和模型权重，而是根据输入文档的视觉尺度，自适应调整整页及检测到的 layout region 的输入尺度，使不同区域以更适合识别的尺度进行解析，并且提高视觉预算的使用效率。
 
-在 **OmniDocBench v1.6_full（1,651 页）** 上，已发布的 SWOCR 配置取得 **98.40951 Overall**。统计来看，SWOCR 的平均每页内容识别视觉 token 从 4268.23 降至 2055.27，减少 51.85%。
+在 **OmniDocBench v1.6_full（1,651 页）** 上，已发布的 SWOCR 配置取得 **98.40951 Overall**。统计来看，相比于 TeleOCR，SWOCR 的平均每页内容识别视觉 token 从 4268.23 降至 2055.27，减少 51.85%。
 
 ## 为什么输入尺度重要
 
