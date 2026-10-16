@@ -1,6 +1,6 @@
 # Ki-OCR
 
-[English](README_EN.md) · [方法说明](#为什么输入尺度重要) · [完整结果与评测协议](docs/EVALUATE.md) · [发布材料](docs/RELEASE.md)
+[English](README_EN.md) · [方法说明](#为什么输入尺度重要) · [完整结果与评测协议](docs/EVALUATE.md) · [发布材料](docs/RELEASE.md) · [推理指南](docs/REPRODUCE.md)
 
 Ki-OCR 是一种基于 frozen TeleOCR-1.2B 的 training-free inference-time adaptation 方法。Ki-OCR 不修改 TeleOCR 的模型架构和模型权重，而是根据输入文档的视觉尺度，自适应调整整页及检测到的 layout region 的输入尺度，使不同区域以更适合识别的尺度进行解析，并且提高视觉预算的使用效率。
 
@@ -15,23 +15,6 @@ Ki-OCR 包含两个互补模块：
 - **Source-aware Rendering：** 使整页渲染尺度与源文档分辨率相协调，减少冗余视觉计算。
 - **Region-adaptive Scaling：** 根据文本和表格区域的视觉特征，在模型的视觉与上下文预算内自适应选择适合的输入尺度。
 
-
-## 已发布结果
-
-以下选取 [OmniDocBench v1.6_full 官方榜单](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation)中 Overall 最高的五项，与 Ki-OCR 对照（核对日期：2026-10-16）。Ki-OCR 的本地评测分数高于当前榜首，尚未被官方榜单收录。
-
-| 方法 | Overall ↑ | 文本 ED ↓ | 公式 CDM ↑ | 表格 TEDS ↑ | 表格 TEDS-S ↑ | 阅读顺序 ED ↓ |
-|---|---:|---:|---:|---:|---:|---:|
-| **Ki-OCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
-| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
-| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
-| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
-| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
-| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
-
-Overall、CDM、TEDS 和 TEDS-S 为百分数，ED 为比例值。两组的逐页指标、token 记录及复算脚本见[公开证据](docs/EVIDENCE.md)。
-
-本次评测覆盖 OmniDocBench v1.6_full 的全部 1,651 页，采用官方 scorer 的 `f133a71e9e91c3621c7ce8994200a7b394a06eb3` 版本及配套 quick_match 配置。[评测协议](docs/EVALUATE.md)集中说明对照设置、指标覆盖范围与已发布材料。
 
 ## 快速开始
 
@@ -67,6 +50,23 @@ python -m pip install -e ".[vision]"
 完整推理使用 Linux，以及固定版本的 TeleOCR 源码、模型和运行依赖。在 `runtime_binding.json` 中配置本地路径，再于加载模型前准备输入图像。仓库已包含该版本使用的三个运行时辅助模块。
 
 [推理指南](docs/REPRODUCE.md)提供专用机器 CLI 和受管集群 Python 入口，包括 GPU 准入与工作时间窗口设置。固定环境见[依赖说明](docs/DEPENDENCIES.md)。
+
+## 已发布结果
+
+以下选取 [OmniDocBench v1.6_full 官方榜单](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation)中 Overall 最高的五项，与 Ki-OCR 对照（核对日期：2026-10-16）。Ki-OCR 的本地评测分数高于当前榜首，尚未被官方榜单收录。
+
+| 方法 | Overall ↑ | 文本 ED ↓ | 公式 CDM ↑ | 表格 TEDS ↑ | 表格 TEDS-S ↑ | 阅读顺序 ED ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| **Ki-OCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
+| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
+| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
+| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
+| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
+| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
+
+Overall、CDM、TEDS 和 TEDS-S 为百分数，ED 为比例值。两组的逐页指标、token 记录及复算脚本见[公开证据](docs/EVIDENCE.md)。
+
+本次评测覆盖 OmniDocBench v1.6_full 的全部 1,651 页，采用官方 scorer 的 `f133a71e9e91c3621c7ce8994200a7b394a06eb3` 版本及配套 quick_match 配置。[评测协议](docs/EVALUATE.md)集中说明对照设置、指标覆盖范围与已发布材料。
 
 ## 复现评测
 

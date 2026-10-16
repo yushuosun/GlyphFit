@@ -1,6 +1,6 @@
 # Ki-OCR
 
-[简体中文](README.md) · [Method](#why-input-scale-matters) · [Full results and evaluation protocol](docs/EVALUATE.md) · [Release materials](docs/RELEASE.md)
+[简体中文](README.md) · [Method](#why-input-scale-matters) · [Full results and evaluation protocol](docs/EVALUATE.md) · [Release materials](docs/RELEASE.md) · [Inference guide](docs/REPRODUCE.md)
 
 Ki-OCR is a training-free inference-time adaptation method built on a frozen TeleOCR-1.2B. Without modifying TeleOCR's architecture or model weights, Ki-OCR adaptively adjusts the input scales of document pages and detected layout regions according to the visual scale of the input document. This allows different regions to be parsed at scales better suited to recognition while improving visual budget utilization.
 
@@ -16,23 +16,6 @@ Ki-OCR comprises two complementary modules:
 - **Region-adaptive Scaling:** Adaptively selects suitable input scales based on the visual characteristics of text and table regions, within the model's visual and context budgets.
 
 The two modules allocate input detail at the page and region levels, respectively. TeleOCR performs layout analysis, content recognition, post-processing and Markdown assembly.
-
-## Released results
-
-The table compares Ki-OCR with the five highest Overall scores on the [official OmniDocBench v1.6_full leaderboard](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation), checked on 2026-10-16. Ki-OCR's local evaluation score exceeds the current leading score; Ki-OCR has not yet been included in the official leaderboard.
-
-| Method | Overall ↑ | Text ED ↓ | Formula CDM ↑ | Table TEDS ↑ | Table TEDS-S ↑ | Reading order ED ↓ |
-|---|---:|---:|---:|---:|---:|---:|
-| **Ki-OCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
-| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
-| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
-| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
-| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
-| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
-
-Overall, CDM, TEDS and TEDS-S are percentages; ED values are ratios. Both arms' per-page metrics, token counts and recomputation script are available in the [released evidence](docs/EVIDENCE.md).
-
-This evaluation covers all 1,651 pages of OmniDocBench v1.6_full, using the official scorer at commit `f133a71e9e91c3621c7ce8994200a7b394a06eb3` and the accompanying quick_match configuration. The [evaluation protocol](docs/EVALUATE.md) describes the control settings, metric coverage and released materials.
 
 ## Quick start
 
@@ -68,6 +51,23 @@ python -m pip install -e ".[vision]"
 Full inference uses Linux and pinned versions of the TeleOCR source, model and runtime dependencies. Configure the local paths in `runtime_binding.json`, then prepare the input images before loading the model. The repository includes the three runtime helper modules used by this version.
 
 The [inference guide](docs/REPRODUCE.md) provides a dedicated-machine CLI and a managed-cluster Python entry, including GPU admission and work-window settings. See the [dependency documentation](docs/DEPENDENCIES.md) for the pinned environment.
+
+## Released results
+
+The table compares Ki-OCR with the five highest Overall scores on the [official OmniDocBench v1.6_full leaderboard](https://github.com/opendatalab/OmniDocBench/blob/f133a71e9e91c3621c7ce8994200a7b394a06eb3/README.md#end-to-end-evaluation), checked on 2026-10-16. Ki-OCR's local evaluation score exceeds the current leading score; Ki-OCR has not yet been included in the official leaderboard.
+
+| Method | Overall ↑ | Text ED ↓ | Formula CDM ↑ | Table TEDS ↑ | Table TEDS-S ↑ | Reading order ED ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| **Ki-OCR** | 98.40951 | 0.02542364 | 98.94488 | 98.82602 | 99.35003 | 0.11870026 |
+| TeleOCR | 96.91 | 0.0267 | 96.5895 | 96.8183 | 98.1806 | 0.1184 |
+| OvisOCR2 | 96.47 | 0.0265 | 97.4854 | 94.5842 | 96.9768 | 0.1120 |
+| PaddleOCR-VL-1.6 | 96.34 | 0.0326 | 97.5304 | 94.7619 | 97.1002 | 0.1278 |
+| MinerU2.5-Pro | 95.75 | 0.036 | 97.45 | 93.42 | 95.92 | 0.120 |
+| GLM-OCR | 95.22 | 0.044 | 97.18 | 92.83 | 95.39 | 0.133 |
+
+Overall, CDM, TEDS and TEDS-S are percentages; ED values are ratios. Both arms' per-page metrics, token counts and recomputation script are available in the [released evidence](docs/EVIDENCE.md).
+
+This evaluation covers all 1,651 pages of OmniDocBench v1.6_full, using the official scorer at commit `f133a71e9e91c3621c7ce8994200a7b394a06eb3` and the accompanying quick_match configuration. The [evaluation protocol](docs/EVALUATE.md) describes the control settings, metric coverage and released materials.
 
 ## Reproduce evaluation
 
